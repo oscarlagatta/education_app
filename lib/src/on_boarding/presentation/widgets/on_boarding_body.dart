@@ -14,10 +14,8 @@ class OnBoardingBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-
         Image.asset(
           pageContent.image,
           height: context.height * .5,
@@ -60,8 +58,8 @@ class OnBoardingBody extends StatelessWidget {
                   backgroundColor: Colours.primaryColour,
                   foregroundColor: Colors.white,
                 ),
-                onPressed: ()  {
-                  // context.read<OnBoardingCubit>().cacheFirstTimer();
+                onPressed: () {
+                  context.read<OnBoardingCubit>().cacheFirstTimer();
                 },
                 child: const Text(
                   'Get Started',
