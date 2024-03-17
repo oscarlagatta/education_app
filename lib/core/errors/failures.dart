@@ -12,7 +12,9 @@ abstract class Failure extends Equatable {
   final String message;
   final dynamic statusCode;
 
-  String get errorMessage => '$statusCode Error: $message';
+  // we want to show Error if the status code doesn't need the word Error
+  // if the status code is String then we put an empty string instead
+  String get errorMessage => '${statusCode is String ? '' : ' Error'}  $message';
 
   @override
   List<dynamic> get props => [message, statusCode];

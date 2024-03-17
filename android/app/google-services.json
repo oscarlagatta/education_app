@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "196216988404",
+    "project_id": "educationapp-f8dfc",
+    "storage_bucket": "educationapp-f8dfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196216988404:android:82ae9855c3e63a6e9cb4a1",
+        "android_client_info": {
+          "package_name": "com.oscarlagatta.education_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALoDYpWhzfypsqx5DpRQjPAz2eJ2S_qi4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

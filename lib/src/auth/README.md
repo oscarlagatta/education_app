@@ -149,4 +149,66 @@ abstract class AuthRemoteDataSource {
   Future<void> updateUser({required UpdateUserAction action, dynamic userData});
 }
 ```
+## Connect Firebase
 
+- Install Firebase packages
+` flutter pub add firebase_core firebase_auth cloud_firestore firebase_storage firebase_ui_auth `
+- After first try of installing the packages you may have the following error:
+`
+  Because every version of firebase_ui_auth depends on flutter_localizations from sdk which depends on intl
+  0.18.1, every version of firebase_ui_auth requires intl 0.18.1.
+  `
+- Open `pubspec.yaml` file and change the `intl` dependency to have version 0.18.1 `intl: ^0.18.1` and retry installation.
+
+## Implement Authentication Remote Data Source
+
+```dart
+class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
+  const AuthRemoteDataSourceImpl(
+      {required FirebaseAuth authClient,
+      required FirebaseFirestore cloudStoreClient,
+      required FirebaseStorage dbClient})
+      : _authClient = authClient,
+        _cloudStoreClient = cloudStoreClient,
+        _dbClient = dbClient;
+
+  final FirebaseAuth _authClient;
+  final FirebaseFirestore _cloudStoreClient;
+  final FirebaseStorage _dbClient;
+
+  @override
+  Future<void> forgotPassword(String email) async {
+    // TODO: implement forgotPassword
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<LocalUserModel> signIn({
+    required String email,
+    required String password,
+  }) async {
+    // TODO: implement signIn
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> signUp({
+    required String email,
+    required String fullName,
+    required String password,
+  }) async {
+    // TODO: implement signUp
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> updateUser({
+    required UpdateUserAction action,
+    dynamic userData,
+  }) {
+    // TODO: implement updateUser
+    throw UnimplementedError();
+  }
+}
+
+```
