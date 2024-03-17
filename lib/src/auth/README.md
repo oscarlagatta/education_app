@@ -103,7 +103,7 @@ class AuthRepoImpl implements AuthRepo {
 
   final AuthRemoteDataSource _remoteDataSource;
 
-  
+}
 ```
 - Each method uses try on error catch as follows
 ```dart
