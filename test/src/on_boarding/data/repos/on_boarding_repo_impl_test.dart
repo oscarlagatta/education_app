@@ -48,7 +48,6 @@ void main() {
       when(() => localDataSource.cacheFirstTimer()).thenThrow(
         const CacheException(message: 'Insufficient Storage'),
       );
-      ;
       final result = await repoImpl.cacheFirstTime();
 
       expect(

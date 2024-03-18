@@ -40,7 +40,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   const AuthRemoteDataSourceImpl(
       {required FirebaseAuth authClient,
       required FirebaseFirestore cloudStoreClient,
-      required FirebaseStorage dbClient})
+      required FirebaseStorage dbClient,})
       : _authClient = authClient,
         _cloudStoreClient = cloudStoreClient,
         _dbClient = dbClient;

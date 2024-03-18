@@ -212,3 +212,40 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 }
 
 ```
+## Mock Firebase Authentication, Cloud Firestore and Firebase Storage
+
+- Install the following dependencies
+  - `https://pub.dev/packages/firebase_auth_mocks`
+  - `https://pub.dev/packages/fake_cloud_firestore`
+  - `https://pub.dev/packages/firebase_storage_mocks`
+  - `https://pub.dev/packages/google_sign_in_mocks`
+- We install as DEVELOPMENT -d the following packages
+  - `flutter pub add firebase_auth_mocks google_sign_in_mocks fake_cloud_firestore firebase_storage_mocks -d`
+  - Following is how we mock a firebase authentication
+```dart
+import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
+import 'package:google_sign_in_mocks/google_sign_in_mocks.dart';
+
+main() {
+  // Mock sign in with Google.
+  final googleSignIn = MockGoogleSignIn();
+  final signinAccount = await googleSignIn.signIn();
+  final googleAuth = await signinAccount.authentication;
+  final AuthCredential credential = GoogleAuthProvider.getCredential(
+    accessToken: googleAuth.accessToken,
+    idToken: googleAuth.idToken,
+  );
+  // Sign in.
+  final user = MockUser(
+    isAnonymous: false,
+    uid: 'someuid',
+    email: 'bob@somedomain.com',
+    displayName: 'Bob',
+  );
+  final auth = MockFirebaseAuth(mockUser: user);
+  final result = await auth.signInWithCredential(credential);
+  final user = await result.user;
+  print(user.displayName);
+}
+  ```
+
